@@ -20,7 +20,13 @@ function sendMail(){
             subject:'Testing code for sending mail!',
             text:"Hai peter,This is a Sample mail to test coding!."
         }
-        
+        transporter.sendMail(mail_configs,function(error,info){
+            if(error){
+                console.log(error)
+                return reject({message:`An error occured`})
+            }
+            return resolve({message:`Mail send succesfully`})
+        })
     })
 }
 
