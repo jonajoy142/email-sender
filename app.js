@@ -30,6 +30,12 @@ function sendMail(){
     })
 }
 
+app.get('/',(req,res)=>{
+    sendMail()
+    .then(response=>res.send(response.message))
+    .catch(error=>res.status(500).send(error.message))
+})
+
 app.listen(port,()=>{
     console.log(`Listeneing to port: ${port}`)
 })
