@@ -3,19 +3,20 @@ const express  = require('express')
 const nodemailer = require('nodemailer')
 const app = express();
 const port = 5000
-
+var yourmail="";
+var yourpass="";
 function sendMail(){
 
     return new Promise((resolve,reject)=>{
         var transporter = nodemailer.createTransport({
             service:'gmail',
             auth:{
-                user:'',
-                pass:''
+                user:'yourmail',
+                pass:'yourpass'
             }
         })
         const mail_configs = {
-            from:'',
+            from:'yourmail',
             to:'',
             subject:'Testing code for sending mail!',
             text:"Hai peter,This is a Sample mail to test coding!."
